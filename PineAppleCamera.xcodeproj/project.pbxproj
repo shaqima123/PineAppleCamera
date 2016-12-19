@@ -1,0 +1,827 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		124C16651E052646007C94EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 124C16641E052646007C94EF /* main.m */; };
+		124C16681E052646007C94EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 124C16671E052646007C94EF /* AppDelegate.m */; };
+		124C16701E052646007C94EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 124C166F1E052646007C94EF /* Assets.xcassets */; };
+		124C16731E052646007C94EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 124C16711E052646007C94EF /* LaunchScreen.storyboard */; };
+		124C167E1E052646007C94EF /* PineAppleCameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 124C167D1E052646007C94EF /* PineAppleCameraTests.m */; };
+		124C16891E052646007C94EF /* PineAppleCameraUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 124C16881E052646007C94EF /* PineAppleCameraUITests.m */; };
+		124C16A21E0526A5007C94EF /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 124C169D1E052663007C94EF /* libGPUImage.a */; };
+		124C16A51E0526B2007C94EF /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 124C16A41E0526B2007C94EF /* CoreMedia.framework */; };
+		124C16A71E0526BA007C94EF /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 124C16A61E0526BA007C94EF /* CoreVideo.framework */; };
+		124C16A91E0526C5007C94EF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 124C16A81E0526C5007C94EF /* OpenGLES.framework */; };
+		124C16AB1E0526CB007C94EF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 124C16AA1E0526CB007C94EF /* AVFoundation.framework */; };
+		124C16AD1E0526D3007C94EF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 124C16AC1E0526D3007C94EF /* QuartzCore.framework */; };
+		124C16BB1E05352C007C94EF /* PineAppleCameraStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 124C16BA1E05352C007C94EF /* PineAppleCameraStoryboard.storyboard */; };
+		124C16C21E05367C007C94EF /* PACameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 124C16C11E05367C007C94EF /* PACameraViewController.m */; };
+		124C16C71E053BA5007C94EF /* PAStillCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 124C16C61E053BA5007C94EF /* PAStillCamera.m */; };
+		124C16CB1E05429C007C94EF /* MTBubbleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 124C16CA1E05429C007C94EF /* MTBubbleButton.m */; };
+		124C16CE1E05440E007C94EF /* PACheckPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 124C16CD1E05440E007C94EF /* PACheckPhotoViewController.m */; };
+		124C16D11E05481F007C94EF /* UIImage+fixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 124C16D01E05481F007C94EF /* UIImage+fixOrientation.m */; };
+		124C16D41E054827007C94EF /* Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 124C16D31E054827007C94EF /* Tool.m */; };
+		124C16D91E05494F007C94EF /* CameraFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 124C16D61E05494F007C94EF /* CameraFilterView.m */; };
+		124C16DA1E05494F007C94EF /* MTMaskImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 124C16D81E05494F007C94EF /* MTMaskImageView.m */; };
+		124C16DE1E06761C007C94EF /* GPUImageBeautifyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 124C16DD1E06761C007C94EF /* GPUImageBeautifyFilter.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		124C167A1E052646007C94EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 124C16581E052646007C94EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 124C165F1E052646007C94EF;
+			remoteInfo = PineAppleCamera;
+		};
+		124C16851E052646007C94EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 124C16581E052646007C94EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 124C165F1E052646007C94EF;
+			remoteInfo = PineAppleCamera;
+		};
+		124C169C1E052663007C94EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 124C16961E052662007C94EF /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
+		124C169E1E052663007C94EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 124C16961E052662007C94EF /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCE209E51943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
+		124C16A01E052699007C94EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 124C16961E052662007C94EF /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCF1A33314DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		124C16601E052646007C94EF /* PineAppleCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PineAppleCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		124C16641E052646007C94EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		124C16661E052646007C94EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		124C16671E052646007C94EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		124C166F1E052646007C94EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
+		124C16721E052646007C94EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		124C16741E052646007C94EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		124C16791E052646007C94EF /* PineAppleCameraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PineAppleCameraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		124C167D1E052646007C94EF /* PineAppleCameraTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PineAppleCameraTests.m; sourceTree = "<group>"; };
+		124C167F1E052646007C94EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		124C16841E052646007C94EF /* PineAppleCameraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PineAppleCameraUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		124C16881E052646007C94EF /* PineAppleCameraUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PineAppleCameraUITests.m; sourceTree = "<group>"; };
+		124C168A1E052646007C94EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		124C16961E052662007C94EF /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = "../../../Users/zj-db0737/Downloads/GPUImage-master/framework/GPUImage.xcodeproj"; sourceTree = "<group>"; };
+		124C16A41E0526B2007C94EF /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		124C16A61E0526BA007C94EF /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		124C16A81E0526C5007C94EF /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		124C16AA1E0526CB007C94EF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		124C16AC1E0526D3007C94EF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		124C16BA1E05352C007C94EF /* PineAppleCameraStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PineAppleCameraStoryboard.storyboard; sourceTree = "<group>"; };
+		124C16C01E05367C007C94EF /* PACameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PACameraViewController.h; sourceTree = "<group>"; };
+		124C16C11E05367C007C94EF /* PACameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PACameraViewController.m; sourceTree = "<group>"; };
+		124C16C31E053788007C94EF /* PAUtilsMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PAUtilsMacro.h; sourceTree = "<group>"; };
+		124C16C41E0539BD007C94EF /* PAStaticMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PAStaticMacro.h; sourceTree = "<group>"; };
+		124C16C51E053BA5007C94EF /* PAStillCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAStillCamera.h; sourceTree = "<group>"; };
+		124C16C61E053BA5007C94EF /* PAStillCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAStillCamera.m; sourceTree = "<group>"; };
+		124C16C81E053C01007C94EF /* PAEnumMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PAEnumMacro.h; sourceTree = "<group>"; };
+		124C16C91E05429C007C94EF /* MTBubbleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBubbleButton.h; sourceTree = "<group>"; };
+		124C16CA1E05429C007C94EF /* MTBubbleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBubbleButton.m; sourceTree = "<group>"; };
+		124C16CC1E05440E007C94EF /* PACheckPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PACheckPhotoViewController.h; sourceTree = "<group>"; };
+		124C16CD1E05440E007C94EF /* PACheckPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PACheckPhotoViewController.m; sourceTree = "<group>"; };
+		124C16CF1E05481F007C94EF /* UIImage+fixOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+fixOrientation.h"; sourceTree = "<group>"; };
+		124C16D01E05481F007C94EF /* UIImage+fixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+fixOrientation.m"; sourceTree = "<group>"; };
+		124C16D21E054827007C94EF /* Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tool.h; sourceTree = "<group>"; };
+		124C16D31E054827007C94EF /* Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tool.m; sourceTree = "<group>"; };
+		124C16D51E05494F007C94EF /* CameraFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraFilterView.h; sourceTree = "<group>"; };
+		124C16D61E05494F007C94EF /* CameraFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraFilterView.m; sourceTree = "<group>"; };
+		124C16D71E05494F007C94EF /* MTMaskImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTMaskImageView.h; sourceTree = "<group>"; };
+		124C16D81E05494F007C94EF /* MTMaskImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTMaskImageView.m; sourceTree = "<group>"; };
+		124C16DC1E06761C007C94EF /* GPUImageBeautifyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageBeautifyFilter.h; sourceTree = "<group>"; };
+		124C16DD1E06761C007C94EF /* GPUImageBeautifyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageBeautifyFilter.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		124C165D1E052646007C94EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				124C16AD1E0526D3007C94EF /* QuartzCore.framework in Frameworks */,
+				124C16AB1E0526CB007C94EF /* AVFoundation.framework in Frameworks */,
+				124C16A91E0526C5007C94EF /* OpenGLES.framework in Frameworks */,
+				124C16A71E0526BA007C94EF /* CoreVideo.framework in Frameworks */,
+				124C16A51E0526B2007C94EF /* CoreMedia.framework in Frameworks */,
+				124C16A21E0526A5007C94EF /* libGPUImage.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		124C16761E052646007C94EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		124C16811E052646007C94EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		124C16571E052646007C94EF = {
+			isa = PBXGroup;
+			children = (
+				124C16961E052662007C94EF /* GPUImage.xcodeproj */,
+				124C16621E052646007C94EF /* PineAppleCamera */,
+				124C167C1E052646007C94EF /* PineAppleCameraTests */,
+				124C16871E052646007C94EF /* PineAppleCameraUITests */,
+				124C16611E052646007C94EF /* Products */,
+				124C16A31E0526B2007C94EF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		124C16611E052646007C94EF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				124C16601E052646007C94EF /* PineAppleCamera.app */,
+				124C16791E052646007C94EF /* PineAppleCameraTests.xctest */,
+				124C16841E052646007C94EF /* PineAppleCameraUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		124C16621E052646007C94EF /* PineAppleCamera */ = {
+			isa = PBXGroup;
+			children = (
+				124C16B41E052F45007C94EF /* General */,
+				124C16AE1E052E84007C94EF /* Macro */,
+				124C16AF1E052E84007C94EF /* Main */,
+				124C16B01E052E84007C94EF /* Models */,
+				124C16B11E052E84007C94EF /* Network */,
+				124C16B21E052E84007C94EF /* Resources */,
+				124C16B31E052E84007C94EF /* Utils */,
+				124C16661E052646007C94EF /* AppDelegate.h */,
+				124C16671E052646007C94EF /* AppDelegate.m */,
+				124C16711E052646007C94EF /* LaunchScreen.storyboard */,
+				124C16741E052646007C94EF /* Info.plist */,
+				124C16631E052646007C94EF /* Supporting Files */,
+			);
+			path = PineAppleCamera;
+			sourceTree = "<group>";
+		};
+		124C16631E052646007C94EF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				124C16641E052646007C94EF /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		124C167C1E052646007C94EF /* PineAppleCameraTests */ = {
+			isa = PBXGroup;
+			children = (
+				124C167D1E052646007C94EF /* PineAppleCameraTests.m */,
+				124C167F1E052646007C94EF /* Info.plist */,
+			);
+			path = PineAppleCameraTests;
+			sourceTree = "<group>";
+		};
+		124C16871E052646007C94EF /* PineAppleCameraUITests */ = {
+			isa = PBXGroup;
+			children = (
+				124C16881E052646007C94EF /* PineAppleCameraUITests.m */,
+				124C168A1E052646007C94EF /* Info.plist */,
+			);
+			path = PineAppleCameraUITests;
+			sourceTree = "<group>";
+		};
+		124C16971E052662007C94EF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				124C169D1E052663007C94EF /* libGPUImage.a */,
+				124C169F1E052663007C94EF /* GPUImage.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		124C16A31E0526B2007C94EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				124C16AC1E0526D3007C94EF /* QuartzCore.framework */,
+				124C16AA1E0526CB007C94EF /* AVFoundation.framework */,
+				124C16A81E0526C5007C94EF /* OpenGLES.framework */,
+				124C16A61E0526BA007C94EF /* CoreVideo.framework */,
+				124C16A41E0526B2007C94EF /* CoreMedia.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		124C16AE1E052E84007C94EF /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				124C16C31E053788007C94EF /* PAUtilsMacro.h */,
+				124C16C41E0539BD007C94EF /* PAStaticMacro.h */,
+				124C16C81E053C01007C94EF /* PAEnumMacro.h */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		124C16AF1E052E84007C94EF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				124C16BC1E053653007C94EF /* Camera */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		124C16B01E052E84007C94EF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		124C16B11E052E84007C94EF /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		124C16B21E052E84007C94EF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				124C166F1E052646007C94EF /* Assets.xcassets */,
+				124C16B81E052F54007C94EF /* storyboards */,
+				124C16B91E052F54007C94EF /* xibs */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		124C16B31E052E84007C94EF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		124C16B41E052F45007C94EF /* General */ = {
+			isa = PBXGroup;
+			children = (
+				124C16B51E052F45007C94EF /* Categories */,
+				124C16B61E052F45007C94EF /* Manager */,
+				124C16B71E052F45007C94EF /* Utils */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		124C16B51E052F45007C94EF /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				124C16CF1E05481F007C94EF /* UIImage+fixOrientation.h */,
+				124C16D01E05481F007C94EF /* UIImage+fixOrientation.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		124C16B61E052F45007C94EF /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		124C16B71E052F45007C94EF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				124C16D21E054827007C94EF /* Tool.h */,
+				124C16D31E054827007C94EF /* Tool.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		124C16B81E052F54007C94EF /* storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				124C16BA1E05352C007C94EF /* PineAppleCameraStoryboard.storyboard */,
+			);
+			path = storyboards;
+			sourceTree = "<group>";
+		};
+		124C16B91E052F54007C94EF /* xibs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = xibs;
+			sourceTree = "<group>";
+		};
+		124C16BC1E053653007C94EF /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				124C16BD1E053653007C94EF /* Controller */,
+				124C16BE1E053653007C94EF /* Model */,
+				124C16BF1E053653007C94EF /* View */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		124C16BD1E053653007C94EF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				124C16C01E05367C007C94EF /* PACameraViewController.h */,
+				124C16C11E05367C007C94EF /* PACameraViewController.m */,
+				124C16CC1E05440E007C94EF /* PACheckPhotoViewController.h */,
+				124C16CD1E05440E007C94EF /* PACheckPhotoViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		124C16BE1E053653007C94EF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				124C16DB1E067604007C94EF /* Filters */,
+				124C16C51E053BA5007C94EF /* PAStillCamera.h */,
+				124C16C61E053BA5007C94EF /* PAStillCamera.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		124C16BF1E053653007C94EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				124C16D51E05494F007C94EF /* CameraFilterView.h */,
+				124C16D61E05494F007C94EF /* CameraFilterView.m */,
+				124C16D71E05494F007C94EF /* MTMaskImageView.h */,
+				124C16D81E05494F007C94EF /* MTMaskImageView.m */,
+				124C16C91E05429C007C94EF /* MTBubbleButton.h */,
+				124C16CA1E05429C007C94EF /* MTBubbleButton.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		124C16DB1E067604007C94EF /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				124C16DC1E06761C007C94EF /* GPUImageBeautifyFilter.h */,
+				124C16DD1E06761C007C94EF /* GPUImageBeautifyFilter.m */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		124C165F1E052646007C94EF /* PineAppleCamera */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 124C168D1E052646007C94EF /* Build configuration list for PBXNativeTarget "PineAppleCamera" */;
+			buildPhases = (
+				124C165C1E052646007C94EF /* Sources */,
+				124C165D1E052646007C94EF /* Frameworks */,
+				124C165E1E052646007C94EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				124C16A11E052699007C94EF /* PBXTargetDependency */,
+			);
+			name = PineAppleCamera;
+			productName = PineAppleCamera;
+			productReference = 124C16601E052646007C94EF /* PineAppleCamera.app */;
+			productType = "com.apple.product-type.application";
+		};
+		124C16781E052646007C94EF /* PineAppleCameraTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 124C16901E052646007C94EF /* Build configuration list for PBXNativeTarget "PineAppleCameraTests" */;
+			buildPhases = (
+				124C16751E052646007C94EF /* Sources */,
+				124C16761E052646007C94EF /* Frameworks */,
+				124C16771E052646007C94EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				124C167B1E052646007C94EF /* PBXTargetDependency */,
+			);
+			name = PineAppleCameraTests;
+			productName = PineAppleCameraTests;
+			productReference = 124C16791E052646007C94EF /* PineAppleCameraTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		124C16831E052646007C94EF /* PineAppleCameraUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 124C16931E052646007C94EF /* Build configuration list for PBXNativeTarget "PineAppleCameraUITests" */;
+			buildPhases = (
+				124C16801E052646007C94EF /* Sources */,
+				124C16811E052646007C94EF /* Frameworks */,
+				124C16821E052646007C94EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				124C16861E052646007C94EF /* PBXTargetDependency */,
+			);
+			name = PineAppleCameraUITests;
+			productName = PineAppleCameraUITests;
+			productReference = 124C16841E052646007C94EF /* PineAppleCameraUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		124C16581E052646007C94EF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "zj－db0737";
+				TargetAttributes = {
+					124C165F1E052646007C94EF = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = ZA747HXW4Q;
+						ProvisioningStyle = Automatic;
+					};
+					124C16781E052646007C94EF = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = ZA747HXW4Q;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 124C165F1E052646007C94EF;
+					};
+					124C16831E052646007C94EF = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = ZA747HXW4Q;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 124C165F1E052646007C94EF;
+					};
+				};
+			};
+			buildConfigurationList = 124C165B1E052646007C94EF /* Build configuration list for PBXProject "PineAppleCamera" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 124C16571E052646007C94EF;
+			productRefGroup = 124C16611E052646007C94EF /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 124C16971E052662007C94EF /* Products */;
+					ProjectRef = 124C16961E052662007C94EF /* GPUImage.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				124C165F1E052646007C94EF /* PineAppleCamera */,
+				124C16781E052646007C94EF /* PineAppleCameraTests */,
+				124C16831E052646007C94EF /* PineAppleCameraUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		124C169D1E052663007C94EF /* libGPUImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGPUImage.a;
+			remoteRef = 124C169C1E052663007C94EF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		124C169F1E052663007C94EF /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = 124C169E1E052663007C94EF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		124C165E1E052646007C94EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				124C16731E052646007C94EF /* LaunchScreen.storyboard in Resources */,
+				124C16701E052646007C94EF /* Assets.xcassets in Resources */,
+				124C16BB1E05352C007C94EF /* PineAppleCameraStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		124C16771E052646007C94EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		124C16821E052646007C94EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		124C165C1E052646007C94EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				124C16C71E053BA5007C94EF /* PAStillCamera.m in Sources */,
+				124C16D11E05481F007C94EF /* UIImage+fixOrientation.m in Sources */,
+				124C16CE1E05440E007C94EF /* PACheckPhotoViewController.m in Sources */,
+				124C16681E052646007C94EF /* AppDelegate.m in Sources */,
+				124C16C21E05367C007C94EF /* PACameraViewController.m in Sources */,
+				124C16D91E05494F007C94EF /* CameraFilterView.m in Sources */,
+				124C16DE1E06761C007C94EF /* GPUImageBeautifyFilter.m in Sources */,
+				124C16651E052646007C94EF /* main.m in Sources */,
+				124C16CB1E05429C007C94EF /* MTBubbleButton.m in Sources */,
+				124C16D41E054827007C94EF /* Tool.m in Sources */,
+				124C16DA1E05494F007C94EF /* MTMaskImageView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		124C16751E052646007C94EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				124C167E1E052646007C94EF /* PineAppleCameraTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		124C16801E052646007C94EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				124C16891E052646007C94EF /* PineAppleCameraUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		124C167B1E052646007C94EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 124C165F1E052646007C94EF /* PineAppleCamera */;
+			targetProxy = 124C167A1E052646007C94EF /* PBXContainerItemProxy */;
+		};
+		124C16861E052646007C94EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 124C165F1E052646007C94EF /* PineAppleCamera */;
+			targetProxy = 124C16851E052646007C94EF /* PBXContainerItemProxy */;
+		};
+		124C16A11E052699007C94EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImage;
+			targetProxy = 124C16A01E052699007C94EF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		124C16711E052646007C94EF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				124C16721E052646007C94EF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		124C168B1E052646007C94EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		124C168C1E052646007C94EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		124C168E1E052646007C94EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZA747HXW4Q;
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/PinaAppleCamera/**",
+					"$(PROJECT_DIR)/GPUImage/framework/Source/**",
+				);
+				INFOPLIST_FILE = PineAppleCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = " -ObjC ";
+				PRODUCT_BUNDLE_IDENTIFIER = sqm.meitu.PineAppleCamera;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		124C168F1E052646007C94EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZA747HXW4Q;
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/PinaAppleCamera/**",
+					"$(PROJECT_DIR)/GPUImage/framework/Source/**",
+				);
+				INFOPLIST_FILE = PineAppleCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = " -ObjC ";
+				PRODUCT_BUNDLE_IDENTIFIER = sqm.meitu.PineAppleCamera;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		124C16911E052646007C94EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = ZA747HXW4Q;
+				INFOPLIST_FILE = PineAppleCameraTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sqm.meitu.PineAppleCameraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PineAppleCamera.app/PineAppleCamera";
+			};
+			name = Debug;
+		};
+		124C16921E052646007C94EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = ZA747HXW4Q;
+				INFOPLIST_FILE = PineAppleCameraTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sqm.meitu.PineAppleCameraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PineAppleCamera.app/PineAppleCamera";
+			};
+			name = Release;
+		};
+		124C16941E052646007C94EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = ZA747HXW4Q;
+				INFOPLIST_FILE = PineAppleCameraUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sqm.meitu.PineAppleCameraUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PineAppleCamera;
+			};
+			name = Debug;
+		};
+		124C16951E052646007C94EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = ZA747HXW4Q;
+				INFOPLIST_FILE = PineAppleCameraUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sqm.meitu.PineAppleCameraUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PineAppleCamera;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		124C165B1E052646007C94EF /* Build configuration list for PBXProject "PineAppleCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				124C168B1E052646007C94EF /* Debug */,
+				124C168C1E052646007C94EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		124C168D1E052646007C94EF /* Build configuration list for PBXNativeTarget "PineAppleCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				124C168E1E052646007C94EF /* Debug */,
+				124C168F1E052646007C94EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		124C16901E052646007C94EF /* Build configuration list for PBXNativeTarget "PineAppleCameraTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				124C16911E052646007C94EF /* Debug */,
+				124C16921E052646007C94EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		124C16931E052646007C94EF /* Build configuration list for PBXNativeTarget "PineAppleCameraUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				124C16941E052646007C94EF /* Debug */,
+				124C16951E052646007C94EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 124C16581E052646007C94EF /* Project object */;
+}
