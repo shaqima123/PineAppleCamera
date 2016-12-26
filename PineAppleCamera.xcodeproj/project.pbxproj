@@ -29,6 +29,7 @@
 		124C16D91E05494F007C94EF /* CameraFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 124C16D61E05494F007C94EF /* CameraFilterView.m */; };
 		124C16DA1E05494F007C94EF /* MTMaskImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 124C16D81E05494F007C94EF /* MTMaskImageView.m */; };
 		124C16DE1E06761C007C94EF /* GPUImageBeautifyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 124C16DD1E06761C007C94EF /* GPUImageBeautifyFilter.m */; };
+		12998E0C1E0E434100E9468C /* PAMenuCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12998E0B1E0E434100E9468C /* PAMenuCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,8 @@
 		124C16D81E05494F007C94EF /* MTMaskImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTMaskImageView.m; sourceTree = "<group>"; };
 		124C16DC1E06761C007C94EF /* GPUImageBeautifyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageBeautifyFilter.h; sourceTree = "<group>"; };
 		124C16DD1E06761C007C94EF /* GPUImageBeautifyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageBeautifyFilter.m; sourceTree = "<group>"; };
+		12998E0A1E0E434100E9468C /* PAMenuCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAMenuCollectionViewCell.h; sourceTree = "<group>"; };
+		12998E0B1E0E434100E9468C /* PAMenuCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAMenuCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,6 +368,8 @@
 		124C16BF1E053653007C94EF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				12998E0A1E0E434100E9468C /* PAMenuCollectionViewCell.h */,
+				12998E0B1E0E434100E9468C /* PAMenuCollectionViewCell.m */,
 				124C16D51E05494F007C94EF /* CameraFilterView.h */,
 				124C16D61E05494F007C94EF /* CameraFilterView.m */,
 				124C16D71E05494F007C94EF /* MTMaskImageView.h */,
@@ -554,6 +559,7 @@
 				124C16651E052646007C94EF /* main.m in Sources */,
 				124C16CB1E05429C007C94EF /* MTBubbleButton.m in Sources */,
 				124C16D41E054827007C94EF /* Tool.m in Sources */,
+				12998E0C1E0E434100E9468C /* PAMenuCollectionViewCell.m in Sources */,
 				124C16DA1E05494F007C94EF /* MTMaskImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

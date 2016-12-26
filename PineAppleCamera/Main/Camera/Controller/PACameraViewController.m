@@ -29,6 +29,7 @@
 #import "CameraFilterView.h"
 #import "MTMaskImageView.h"
 #import "GPUImageBeautifyFilter.h"
+#import "PAMenuCollectionViewCell.h"
 
 typedef NS_ENUM(NSInteger, FilterViewState) {
     
@@ -46,6 +47,9 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (strong, nonatomic) IBOutlet UIView *cameraView;
 @property (weak, nonatomic) IBOutlet GPUImageView *preview;
+@property (weak, nonatomic) IBOutlet UIView *middleView;
+
+//@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (nonatomic , assign) FilterViewState filterViewState;
 @property (nonatomic , assign) SliderBarKind sliderBarKind;
@@ -70,7 +74,8 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
 
 @property (nonatomic,copy) NSString *lastFlashMode;
 
-@property CameraFilterView *cameraFilterView;
+@property (strong ,nonatomic) CameraFilterView *cameraFilterView;
+@property (strong ,nonatomic) IBOutlet UIView *menuView;
 
 @property (strong, nonatomic) GPUImageGammaFilter *filter;
 @property (strong,nonatomic ) GPUImageView *filterView;
@@ -83,6 +88,8 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
 @property (assign, nonatomic) CMSampleBufferRef photoOutputBuffer;
 
 @property (strong, nonatomic) PACheckPhotoViewController *checkVC;
+@property (strong, nonatomic) NSMutableArray *datasource;
+
 
 @end
 
@@ -113,13 +120,31 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
     [self addSliderBar];
     [self addTurnButton];
     [self flashAnimation];
-    
-   
+    [_menuView clipsToBounds];
     [_exposeButton setTitleColor:[UIColor colorWithRed:1.f green:1.f blue:0.f alpha:1.f] forState:UIControlStateNormal];
     [self addExposeSliderBar];
+    
     [_cameraView bringSubviewToFront:_bottomView];
+   
 
-
+//    
+//    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+//    CGFloat interItemSpacing = 35.f;
+//    CGFloat itemLength = 35.f;
+//    CGFloat itemHeight = _collectionView.frame.size.height;
+//    
+//    flowLayout.minimumInteritemSpacing = interItemSpacing;
+//    flowLayout.minimumLineSpacing = interItemSpacing;
+//    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+//    
+//    flowLayout.sectionInset = UIEdgeInsetsMake(15.f, 20.f, 0.f, 20.f);
+//    flowLayout.itemSize = CGSizeMake(itemLength, itemHeight);
+//    [self.collectionView setFrame:CGRectMake(30,0, 315, 40)];
+//    self.collectionView.collectionViewLayout = flowLayout;
+//    self.collectionView.backgroundColor = [UIColor blackColor];
+//    self.collectionView.showsVerticalScrollIndicator = NO;
+//    self.collectionView.showsHorizontalScrollIndicator = NO;
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)setUpData
@@ -140,14 +165,16 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
     
     [self setFilterViewState:FilterViewHidden];
     [self setSliderBarKind:isExposeMode];
-    _lastFlashMode = @"Camera-FlashAuto";
+    _lastFlashMode = @"pa_icon_takephoto_flash_auto";
     _preSelectedButton = _exposeButton;
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self selector:@selector(refreshUI) name:@"123" object:nil];
+    self.datasource = [NSMutableArray arrayWithArray:@[@"AE",@"SEC",@"ISO",@"AF",@"AWB"]];
+
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    //[_cameraManager startCameraCapture];
+    [_cameraManager startCameraCapture];
 }
 
 #pragma mark UI方法
@@ -169,9 +196,9 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
     [self.preview addSubview:_slider];
     
 }
-//添加曝光sliderbar到主视图上
+////添加曝光sliderbar到主视图上
 - (void)addExposeSliderBar{
-    _expose_slider =  [[UISlider alloc] initWithFrame:CGRectMake(35,4 * self.bottomView.bounds.size.height/9,300, 20)];
+    _expose_slider =  [[UISlider alloc] initWithFrame:CGRectMake(25,55,325,10)];
     _expose_slider.minimumValue = -5.0;
     _expose_slider.maximumValue = 5.0;
     
@@ -181,44 +208,44 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
     
     //_expose_slider.transform = CGAffineTransformMakeRotation(3*M_PI/2);
     [_expose_slider addTarget:self action:@selector(exposeRate) forControlEvents:UIControlEventValueChanged];
-    [self.bottomView addSubview:_expose_slider];
+    [self.menuView addSubview:_expose_slider];
 }
 
 //添加聚焦sliderbar到主视图上
 - (void)addFocusSliderBar{
-    _focus_slider = [[UISlider alloc] initWithFrame:CGRectMake(35,4 * self.bottomView.bounds.size.height/9, 300, 20)];
+    _focus_slider = [[UISlider alloc] initWithFrame:CGRectMake(25,55,325,10)];
     _focus_slider.minimumValue = 0.0f;
     _focus_slider.maximumValue = 1.0f;
     _focus_slider.value = (_focus_slider.maximumValue + _focus_slider.minimumValue) /2;
     
     [_focus_slider addTarget:self action:@selector(focusRate) forControlEvents:UIControlEventValueChanged];
-    [self.bottomView addSubview:_focus_slider];
+    [self.menuView addSubview:_focus_slider];
 }
 
 
 - (void)addWhiteBalanceSliderBar{
-    _whiteBalance_slider = [[UISlider alloc] initWithFrame:CGRectMake(35,4 * self.bottomView.bounds.size.height/9,300, 20)];
+    _whiteBalance_slider = [[UISlider alloc] initWithFrame:CGRectMake(25,55,325,10)];
     _whiteBalance_slider.minimumValue = 3000.f;
     _whiteBalance_slider.maximumValue = 9000.f;
     
     _whiteBalance_slider.value = [_cameraManager getCurrentTemperature];
     [_whiteBalance_slider addTarget:self action:@selector(whiteBalanceRate) forControlEvents:UIControlEventValueChanged];
-    [self.bottomView addSubview:_whiteBalance_slider];
+    [self.menuView addSubview:_whiteBalance_slider];
 }
 
 - (void)addISOSliderBar{
-    _ISO_slider = [[UISlider alloc] initWithFrame:CGRectMake(35, 4 * self.bottomView.bounds.size.height/9, 300, 20)];
+    _ISO_slider = [[UISlider alloc] initWithFrame:CGRectMake(25,55,325,10)];
     _ISO_slider.minimumValue = [[_cameraManager getActiveFormat] minISO];
     _ISO_slider.maximumValue = [[_cameraManager getActiveFormat] maxISO];
     
     _ISO_slider.value = [_cameraManager.inputCamera ISO];
     NSLog(@"min:%f,max:%f,current:%f",_ISO_slider.minimumValue,_ISO_slider.maximumValue,_ISO_slider.value);
     [_ISO_slider addTarget:self action:@selector(ISORate) forControlEvents:UIControlEventValueChanged];
-    [self.bottomView addSubview:_ISO_slider];
+    [self.menuView addSubview:_ISO_slider];
 }
 
 - (void)addSecSliderBar{
-    _sec_slider = [[UISlider alloc] initWithFrame:CGRectMake(35, 4 * self.bottomView.bounds.size.height/9, 300, 20)];
+    _sec_slider = [[UISlider alloc] initWithFrame:CGRectMake(25,55,325,10)];
     CMTime minValue = _cameraManager.inputCamera.activeFormat.minExposureDuration;
     CMTime maxValue = _cameraManager.inputCamera.activeFormat.maxExposureDuration;
     _sec_slider.minimumValue = (float)minValue.value / minValue.timescale;
@@ -227,11 +254,11 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
     _sec_slider.value = 1.f/33.f;
     NSLog(@"min:%f,max:%f,current:%f",_sec_slider.minimumValue,_sec_slider.maximumValue,_sec_slider.value);
     [_sec_slider addTarget:self action:@selector(secRate) forControlEvents:UIControlEventValueChanged];
-    [self.bottomView addSubview:_sec_slider];
+    [self.menuView addSubview:_sec_slider];
 }
 - (void)addTurnButton{
-    _turnButton = [[UIButton alloc] initWithFrame:CGRectMake(self.preview.frame.size.width - 60.0f,20.0f, 40.0f, 40.0f)];
-    [_turnButton setImage:[UIImage imageNamed:@"Camera-Change"] forState:UIControlStateNormal];
+    _turnButton = [[UIButton alloc] initWithFrame:CGRectMake(self.preview.frame.size.width - 40.0f,22.0f, 30.0f, 30.0f)];
+    [_turnButton setImage:[UIImage imageNamed:@"pa_icon_takephoto_turn"] forState:UIControlStateNormal];
     [_turnButton addTarget:self action:@selector(turn) forControlEvents:UIControlEventTouchUpInside];
     _turnButton.layer.cornerRadius = _turnButton.frame.size.height / 2.f;
     _turnButton.backgroundColor = [UIColor colorWithRed:0.f green:0.f blue:0.f alpha:0.5f];
@@ -243,7 +270,18 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
 - (void)addCameraFilterView {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    _cameraFilterView = [[CameraFilterView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - _bottomView.frame.size.height - (SCREEN_WIDTH - 4)/5, SCREEN_WIDTH, (SCREEN_WIDTH - 4)/5) collectionViewLayout:layout];
+    
+    
+    _cameraFilterView = [[CameraFilterView alloc] initWithFrame:CGRectMake(0,_middleView.frame.size.height, _middleView.frame.size.width, _middleView.frame.size.height) collectionViewLayout:layout];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDelay:0.0f];
+    [UIView setAnimationDuration:0.3f];
+    _menuView.frame = CGRectMake(0, -_middleView.frame.size.height, _middleView.frame.size.width, _middleView.frame.size.height);
+    _cameraFilterView.frame = CGRectMake(0, 0, _middleView.frame.size.width, _middleView.frame.size.height);
+    
+    [UIView commitAnimations];
+    
     NSMutableArray *filterNameArray = [[NSMutableArray alloc] initWithCapacity:kPACameraFilterCount];
     for (NSInteger index = 0; index < kPACameraFilterCount; index++) {
         UIImage *image = [UIImage imageNamed:@"girl"];
@@ -251,9 +289,21 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
     }
     _cameraFilterView.cameraFilterDelegate = self;
     _cameraFilterView.picArray = filterNameArray;
-    [self.view addSubview:_cameraFilterView];
+    [self.middleView addSubview:_cameraFilterView];
 }
 
+- (void)hideCameraFilterView {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDelay:0.0f];
+    [UIView setAnimationDuration:0.3f];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationWillStartSelector:@selector(animationDidStart:)];
+    [UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:)];
+    _menuView.frame = CGRectMake(0, 0, _middleView.frame.size.width, _middleView.frame.size.height);
+
+    _cameraFilterView.frame = CGRectMake(0,_middleView.frame.size.height, _middleView.frame.size.width, _middleView.frame.size.height);
+    [UIView commitAnimations];
+}
 //使用滤镜
 - (IBAction)useFilter:(id)sender {
     if (self.filterViewState == FilterViewHidden) {
@@ -261,7 +311,7 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
         [self setFilterViewState:FilterViewUsing];
     }
     else {
-        [_cameraFilterView removeFromSuperview];
+        [self hideCameraFilterView];
         [self setFilterViewState:FilterViewHidden];
     }
 }
@@ -423,7 +473,7 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
     //UILabel *homeLabel = [self createHomeButtonView];
     _homeBtn  = [self createHomeButtonView];
     [_homeBtn addTarget:self action:@selector(homeButtonClick) forControlEvents:UIControlEventTouchUpInside];
-    MTBubbleButton *menuView = [[MTBubbleButton alloc] initWithFrame:CGRectMake(20, 20, _homeBtn.frame.size.width, _homeBtn.frame.size.height) expansionDirection:DirectionRight];
+    MTBubbleButton *menuView = [[MTBubbleButton alloc] initWithFrame:CGRectMake(10, 22, _homeBtn.frame.size.width, _homeBtn.frame.size.height) expansionDirection:DirectionRight];
     menuView.homeButtonView = _homeBtn;
     [menuView addButtons:[self createDemoButtonArray]];
     _flashMenu = menuView;
@@ -438,14 +488,15 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
     }
     else{
         [_homeBtn setImage:nil forState:UIControlStateNormal];
-        [_homeBtn setTitle:@"收回" forState:UIControlStateNormal];
+        [_homeBtn setTitle:@"H" forState:UIControlStateNormal];
+        [_homeBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:15.f]];
         [_flashMenu showButtons];
     }
 }
 
 - (UIButton *)createHomeButtonView {
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0.f, 0.f, 40.f, 40.f)];
-    [button setImage:[UIImage imageNamed:@"Camera-FlashAuto"] forState:UIControlStateNormal];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0.f, 0.f, 30.f, 30.f)];
+    [button setImage:[UIImage imageNamed:@"pa_icon_takephoto_flash_auto"] forState:UIControlStateNormal];
     button.layer.cornerRadius = button.frame.size.height / 2.f;
     button.backgroundColor =[UIColor colorWithRed:0.f green:0.f blue:0.f alpha:0.5f];
     button.clipsToBounds = YES;
@@ -456,11 +507,11 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
     NSMutableArray *buttonsMutable = [[NSMutableArray alloc] init];
     
     int i = 0;
-    for (NSString *imageName in @[@"Camera-FlashAuto", @"Camera-Flash", @"Camera-FlashNone", @"Camera-FlashAlways"]) {
+    for (NSString *imageName in @[@"pa_icon_takephoto_flash_auto", @"pa_icon_takephoto_flash_normal", @"pa_icon_takephoto_flash_none", @"pa_icon_takephoto_flash_always"]) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
         
-        button.frame = CGRectMake(0.f, 0.f, 40.f, 40.f);
+        button.frame = CGRectMake(0.f, 0.f, 30.f, 30.f);
         button.layer.cornerRadius = button.frame.size.height / 2.f;
         button.backgroundColor = [UIColor colorWithRed:0.f green:0.f blue:0.f alpha:0.5f];
         
@@ -474,30 +525,29 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
     return [buttonsMutable copy];
 }
 - (void)buttonClick:(UIButton *)sender {
-    NSLog(@"DWButton tapped, tag: %ld", (long)sender.tag);
     switch ((int)sender.tag) {
         case 0:
-            [_homeBtn setImage:[UIImage imageNamed:@"Camera-FlashAuto"] forState:UIControlStateNormal];
+            [_homeBtn setImage:[UIImage imageNamed:@"pa_icon_takephoto_flash_auto"] forState:UIControlStateNormal];
             [_cameraManager setFlashMode:CameraManagerFlashModeAuto];
-            _lastFlashMode = @"Camera-FlashAuto";
+            _lastFlashMode = @"pa_icon_takephoto_flash_auto";
             [_homeBtn setTitle:@"" forState:UIControlStateNormal];
             break;
         case 1:
-            [_homeBtn setImage:[UIImage imageNamed:@"Camera-Flash"] forState:UIControlStateNormal];
+            [_homeBtn setImage:[UIImage imageNamed:@"pa_icon_takephoto_flash_normal"] forState:UIControlStateNormal];
             [_cameraManager setFlashMode:CameraManagerFlashModeOn];
-            _lastFlashMode = @"Camera-Flash";
+            _lastFlashMode = @"pa_icon_takephoto_flash_normal";
             [_homeBtn setTitle:@"" forState:UIControlStateNormal];
             break;
         case 2:
-            [_homeBtn setImage:[UIImage imageNamed:@"Camera-FlashNone"] forState:UIControlStateNormal];
+            [_homeBtn setImage:[UIImage imageNamed:@"pa_icon_takephoto_flash_none"] forState:UIControlStateNormal];
             [_cameraManager setFlashMode:CameraManagerFlashModeOff];
-            _lastFlashMode = @"Camera-FlashNone";
+            _lastFlashMode = @"pa_icon_takephoto_flash_none";
             [_homeBtn setTitle:@"" forState:UIControlStateNormal];
             break;
         case 3:
-            [_homeBtn setImage:[UIImage imageNamed:@"Camera-FlashAlways"] forState:UIControlStateNormal];
+            [_homeBtn setImage:[UIImage imageNamed:@"pa_icon_takephoto_flash_always"] forState:UIControlStateNormal];
             [_cameraManager setFlashMode:CameraManagerFlashModeOpen];
-            _lastFlashMode = @"Camera-FlashAlways";
+            _lastFlashMode = @"pa_icon_takephoto_flash_always";
             [_homeBtn setTitle:@"" forState:UIControlStateNormal];
             break;
         default:
@@ -642,6 +692,42 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
 - (void)refreshUI{
     NSLog(@"refresh");
 }
+
+
+
+#pragma mark Animation Delegate
+
+
+-(void)animationDidStart:(CAAnimation *)anim
+{
+    NSLog(@"animation is start ...");
+}
+
+-(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    [_cameraFilterView removeFromSuperview];
+}
+
+
+
+//#pragma mark - UICollectionViewDataSource
+//- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+//    return self.datasource.count;
+//}
+//
+//- (PAMenuCollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+//    PAMenuCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"kPAMenuCollectionViewCell" forIndexPath:indexPath];
+//    cell.contentString = [self.datasource objectAtIndex:indexPath.row];
+//    
+//    return cell ;
+//}
+//
+//- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//   // [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
+//    
+//}
+
 /*
 #pragma mark - Navigation
 
