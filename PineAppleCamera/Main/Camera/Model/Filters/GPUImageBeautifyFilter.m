@@ -38,13 +38,13 @@ NSString *const kGPUImageBeautifyFragmentShaderString = SHADER_STRING
      lowp float r = origin.r;
      lowp float g = origin.g;
      lowp float b = origin.b;
-     if (canny.r < 0.2 && r > 0.3725 && g > 0.1568 && b > 0.0784 && r > b && (max(max(r, g), b) - min(min(r, g), b)) > 0.0588 && abs(r-g) > 0.0588) {
+     if (canny.r < 0.2 && r > 0.3725 && g > 0.1568 && b > 0.0784 && r > b && (max(max(r, g), b) - min(min(r, g), b)) > 0.0588 && abs(r-g) > 0.0588) {//如果边缘检测的R值小于0.2并且该处检测为皮肤的话 则进行双边滤波处理
          smooth = (1.0 - smoothDegree) * (origin - bilateral) + bilateral;
      }
      else {
-         smooth = origin;
+         smooth = origin;//否则还是原图
      }
-     smooth.r = log(1.0 + 0.2 * smooth.r)/log(1.2);
+     smooth.r = log(1.0 + 0.2 * smooth.r)/log(1.2);//log曲线调色
      smooth.g = log(1.0 + 0.2 * smooth.g)/log(1.2);
      smooth.b = log(1.0 + 0.2 * smooth.b)/log(1.2);
      gl_FragColor = smooth;
@@ -79,7 +79,7 @@ NSString *const kGPUImageBeautifyFragmentShaderString = SHADER_STRING
     
     // First pass: face smoothing filter
     bilateralFilter = [[GPUImageBilateralFilter alloc] init];
-    bilateralFilter.distanceNormalizationFactor = 4.0;
+    bilateralFilter.distanceNormalizationFactor = 4.0;//值越小磨皮效果越好
     [self addFilter:bilateralFilter];
     
     // Second pass: edge detection
@@ -92,7 +92,7 @@ NSString *const kGPUImageBeautifyFragmentShaderString = SHADER_STRING
     
     // Adjust HSB
     hsbFilter = [[GPUImageHSBFilter alloc] init];
-    [hsbFilter adjustBrightness:1.1];
+    [hsbFilter adjustBrightness:1.1];//，亮度饱和度的调整
     [hsbFilter adjustSaturation:1.1];
     
     [bilateralFilter addTarget:combinationFilter];

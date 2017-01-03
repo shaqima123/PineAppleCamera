@@ -30,6 +30,29 @@
 #import "MTMaskImageView.h"
 #import "GPUImageBeautifyFilter.h"
 #import "PAMenuCollectionViewCell.h"
+#import "PACollectionViewLineLayout.h"
+
+ //Filters
+#import "FW1977Filter.h"
+#import "FWAmaroFilter.h"
+#import "FWBrannanFilter.h"
+#import "FWEarlybirdFilter.h"
+#import "FWFiveInputFilter.h"
+#import "FWHefeFilter.h"
+#import "FWHudsonFilter.h"
+#import "FWInkwellFilter.h"
+#import "FWLomofiFilter.h"
+#import "FWRiseFilter.h"
+#import "FWSierraFilter.h"
+#import "FWSixInputFilter.h"
+#import "FWSutroFilter.h"
+#import "FWToasterFilter.h"
+#import "FWValenciaFilter.h"
+#import "FWWaldenFilter.h"
+#import "FWXproIIFilter.h"
+#import "FWLordKelvinFilter.h"
+#import "FWNashvilleFilter.h"
+#import "FWRiseFilter.h"
 
 typedef NS_ENUM(NSInteger, FilterViewState) {
     
@@ -120,12 +143,11 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
     [self addSliderBar];
     [self addTurnButton];
     [self flashAnimation];
-    [_menuView clipsToBounds];
+    _middleView.clipsToBounds = YES;
     [_exposeButton setTitleColor:[UIColor colorWithRed:1.f green:1.f blue:0.f alpha:1.f] forState:UIControlStateNormal];
     [self addExposeSliderBar];
     
     [_cameraView bringSubviewToFront:_bottomView];
-   
 
 //    
 //    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
@@ -257,7 +279,7 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
     [self.menuView addSubview:_sec_slider];
 }
 - (void)addTurnButton{
-    _turnButton = [[UIButton alloc] initWithFrame:CGRectMake(self.preview.frame.size.width - 40.0f,22.0f, 30.0f, 30.0f)];
+    _turnButton = [[UIButton alloc] initWithFrame:CGRectMake(self.preview.frame.size.width - 45.0f,22.0f, 35.0f, 35.0f)];
     [_turnButton setImage:[UIImage imageNamed:@"pa_icon_takephoto_turn"] forState:UIControlStateNormal];
     [_turnButton addTarget:self action:@selector(turn) forControlEvents:UIControlEventTouchUpInside];
     _turnButton.layer.cornerRadius = _turnButton.frame.size.height / 2.f;
@@ -268,11 +290,25 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
 }
 //添加滤镜视图到主视图上
 - (void)addCameraFilterView {
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    // 设置横向
     
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    CGFloat lineSpacing = 20.f;
+    CGFloat interItemSpacing = 15.f;
+    CGFloat itemLength = 56.f;
+    CGFloat itemHeight = 69.f;
     
-    _cameraFilterView = [[CameraFilterView alloc] initWithFrame:CGRectMake(0,_middleView.frame.size.height, _middleView.frame.size.width, _middleView.frame.size.height) collectionViewLayout:layout];
+    flowLayout.minimumLineSpacing = lineSpacing;
+    flowLayout.minimumInteritemSpacing = interItemSpacing;
+    flowLayout.sectionInset = UIEdgeInsetsMake(4, 0, 4, 0);
+    flowLayout.itemSize = CGSizeMake(itemLength, itemHeight);
+
+   // PACollectionViewLineLayout *layout = [[PACollectionViewLineLayout alloc] init];
+   // layout.itemSize = CGSizeMake(50, 50);
+    [self.cameraFilterView setCollectionViewLayout:flowLayout animated:YES];
+    
+    _cameraFilterView = [[CameraFilterView alloc] initWithFrame:CGRectMake(0,_middleView.frame.size.height, _middleView.frame.size.width, _middleView.frame.size.height) collectionViewLayout:flowLayout];
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDelay:0.0f];
@@ -495,7 +531,7 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
 }
 
 - (UIButton *)createHomeButtonView {
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0.f, 0.f, 30.f, 30.f)];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0.f, 0.f, 35.f, 35.f)];
     [button setImage:[UIImage imageNamed:@"pa_icon_takephoto_flash_auto"] forState:UIControlStateNormal];
     button.layer.cornerRadius = button.frame.size.height / 2.f;
     button.backgroundColor =[UIColor colorWithRed:0.f green:0.f blue:0.f alpha:0.5f];
@@ -511,7 +547,7 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
         
-        button.frame = CGRectMake(0.f, 0.f, 30.f, 30.f);
+        button.frame = CGRectMake(0.f, 0.f, 35.f, 35.f);
         button.layer.cornerRadius = button.frame.size.height / 2.f;
         button.backgroundColor = [UIColor colorWithRed:0.f green:0.f blue:0.f alpha:0.5f];
         
@@ -566,38 +602,43 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
             [_checkVC setFilterCode:0];
             break;
         case 1:
-            _filter = [[GPUImageBeautifyFilter alloc] init];//绿巨人
+            _filter = [[GPUImageBeautifyFilter alloc] init];//美颜
             [_checkVC setFilterCode:1];
             break;
         case 2:
-            _filter = [[GPUImageColorInvertFilter alloc] init];//负片
+            _filter = [[FWAmaroFilter alloc] init];//经典
             [_checkVC setFilterCode:2];
             break;
         case 3:
-            _filter = [[GPUImageSepiaFilter alloc] init];//老照片
+            _filter = [[FWNashvilleFilter alloc] init];//碧波
+
             [_checkVC setFilterCode:3];
             break;
         case 4: {
-            _filter = [[GPUImageGaussianBlurPositionFilter alloc] init];
-            [(GPUImageGaussianBlurPositionFilter*)_filter setBlurRadius:40.0/320.0];
+            _filter = [[FWBrannanFilter alloc] init];//记忆
             [_checkVC setFilterCode:4];
         }
             break;
         case 5:
-            _filter = [[GPUImageMedianFilter alloc] init];
+            _filter = [[FWEarlybirdFilter alloc] init];//哥特风
             [_checkVC setFilterCode:5];
             break;
         case 6:
-            _filter = [[GPUImageVignetteFilter alloc] init];//黑晕
+            _filter = [[FWLomofiFilter alloc] init];//LOMO
             [_checkVC setFilterCode:6];
             break;
         case 7:
-            _filter = [[GPUImageKuwaharaRadius3Filter alloc] init];
+            _filter = [[FWInkwellFilter alloc] init];//水墨
             [_checkVC setFilterCode:7];
             break;
         case 8:
-            _filter = [[GPUImageBilateralFilter alloc] init];
+            _filter = [[FWHudsonFilter alloc] init];//云端
             [_checkVC setFilterCode:8];
+            break;
+        case 9:
+            _filter = [[FWRiseFilter alloc] init];//彩虹瀑
+            [_checkVC setFilterCode:9];
+            break;
         default:
             _filter = [[GPUImageFilter alloc] init];
             [_checkVC setFilterCode:0];
@@ -641,6 +682,8 @@ typedef NS_ENUM(NSInteger, FilterViewState) {
         [self whiteBalanceRate];
         [self ISORate];
         [self secRate];
+        [self.middleView sizeToFit];
+        
     });
     [self performSelector:@selector(animationCamera) withObject:self afterDelay:0.2f];
 }

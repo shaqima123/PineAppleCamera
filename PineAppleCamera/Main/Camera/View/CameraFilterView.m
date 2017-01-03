@@ -7,6 +7,8 @@
 //
 
 #import "CameraFilterView.h"
+#import "PACameraFilterCollectionViewCell.h"
+
 static const float CELL_HEIGHT = 84.0f;
 static const float CELL_WIDTH = 56.0f;
 @implementation CameraFilterView
@@ -16,6 +18,7 @@ static const float CELL_WIDTH = 56.0f;
 - (id)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout{
     self = [super initWithFrame:frame collectionViewLayout:layout];
     if (self) {
+        self.nameArray = [NSMutableArray arrayWithObjects:@"原图",@"美颜",@"经典",@"碧波",@"记忆",@"哥特风",@"LOMO",@"水墨",@"云端",@"彩虹瀑", nil];
         self.delegate = self;
         self.dataSource = self;
     }
@@ -32,15 +35,16 @@ static const float CELL_WIDTH = 56.0f;
     return [_picArray count];
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *identifier = @"cameraFilterCellID";
-    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:identifier];
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, CELL_WIDTH, CELL_HEIGHT)];
-    imageView.image = [_picArray objectAtIndex:indexPath.row];
-    [cell addSubview:imageView];
-    cell.backgroundColor = [UIColor whiteColor];
+- (PACameraFilterCollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *identifier = @"PACameraFilterCollectionViewCell";
     
+    [collectionView registerNib:[UINib nibWithNibName:@"PACameraFilterCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:identifier];
+    
+//    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:identifier];
+    PACameraFilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    cell.filterName = [_nameArray objectAtIndex:indexPath.row];
+    
+    cell.backgroundColor = [UIColor blackColor];
     return cell;
 }
 

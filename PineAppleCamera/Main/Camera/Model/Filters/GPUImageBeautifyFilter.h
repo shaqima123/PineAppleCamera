@@ -13,7 +13,7 @@
 @interface GPUImageBeautifyFilter : GPUImageFilterGroup {
     GPUImageBilateralFilter *bilateralFilter;//双边模糊
     GPUImageCannyEdgeDetectionFilter *cannyEdgeFilter;//边缘检测算法（黑白对比度较强）
-    GPUImageCombinationFilter *combinationFilter;
+    GPUImageCombinationFilter *combinationFilter;//自定义的三输入滤波器
     GPUImageHSBFilter *hsbFilter;
 }
 

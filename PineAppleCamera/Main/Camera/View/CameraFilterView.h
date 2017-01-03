@@ -13,6 +13,7 @@
 @interface CameraFilterView : UICollectionView <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) NSMutableArray *picArray;//图片数组
+@property (strong, nonatomic) NSMutableArray *nameArray;
 @property (strong, nonatomic) id <CameraFilterViewDelegate> cameraFilterDelegate;
 @end
 

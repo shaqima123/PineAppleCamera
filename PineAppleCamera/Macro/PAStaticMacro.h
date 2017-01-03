@@ -12,5 +12,5 @@
 
 #endif /* PAStaticMacro_h */
 
-static int kPACameraFilterCount = 9;//滤镜的数量
+static int kPACameraFilterCount = 10;//滤镜的数量
 

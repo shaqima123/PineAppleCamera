@@ -14,10 +14,32 @@
 #import "CameraFilterView.h"
 #import "PAStaticMacro.h"
 #import "PAUtilsMacro.h"
+
+//Filters
 #import "GPUImageBeautifyFilter.h"
+#import "FW1977Filter.h"
+#import "FWAmaroFilter.h"
+#import "FWBrannanFilter.h"
+#import "FWEarlybirdFilter.h"
+#import "FWFiveInputFilter.h"
+#import "FWHefeFilter.h"
+#import "FWHudsonFilter.h"
+#import "FWInkwellFilter.h"
+#import "FWLomofiFilter.h"
+#import "FWRiseFilter.h"
+#import "FWSierraFilter.h"
+#import "FWSixInputFilter.h"
+#import "FWSutroFilter.h"
+#import "FWToasterFilter.h"
+#import "FWValenciaFilter.h"
+#import "FWWaldenFilter.h"
+#import "FWXproIIFilter.h"
+#import "FWLordKelvinFilter.h"
+#import "FWNashvilleFilter.h"
+#import "FWRiseFilter.h"
 
 static int count = 0;
-static int CameraFilterCount = 9;
+static int CameraFilterCount = 10;
 
 @interface PACheckPhotoViewController ()
 
@@ -108,30 +130,33 @@ static int CameraFilterCount = 9;
             _filter = [[GPUImageFilter alloc] init];//原图
             break;
         case 1:
-            _filter = [[GPUImageBeautifyFilter alloc] init];//绿巨人
+            _filter = [[GPUImageBeautifyFilter alloc] init];//美颜
             break;
         case 2:
-            _filter = [[GPUImageColorInvertFilter alloc] init];//负片
+            _filter = [[FWAmaroFilter alloc] init];//经典
             break;
         case 3:
-            _filter = [[GPUImageSepiaFilter alloc] init];//老照片
+            _filter = [[FWNashvilleFilter alloc] init];//碧波
             break;
         case 4: {
-            _filter = [[GPUImageGaussianBlurPositionFilter alloc] init];
-            [(GPUImageGaussianBlurPositionFilter*)_filter setBlurRadius:40.0/320.0];
+           _filter = [[FWBrannanFilter alloc] init];//记忆
         }
             break;
         case 5:
-            _filter = [[GPUImageMedianFilter alloc] init];
+             _filter = [[FWEarlybirdFilter alloc] init];//哥特风
             break;
         case 6:
-            _filter = [[GPUImageVignetteFilter alloc] init];//黑晕
+            _filter = [[FWLomofiFilter alloc] init];//LOMO
             break;
         case 7:
-            _filter = [[GPUImageKuwaharaRadius3Filter alloc] init];
+          _filter = [[FWInkwellFilter alloc] init];//水墨
             break;
         case 8:
-            _filter = [[GPUImageBilateralFilter alloc] init];
+             _filter = [[FWHudsonFilter alloc] init];//云端
+            break;
+        case 9:
+            _filter = [[FWRiseFilter alloc] init];//彩虹瀑
+            break;
         default:
             _filter = [[GPUImageFilter alloc] init];
             break;
