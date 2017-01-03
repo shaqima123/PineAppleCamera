@@ -199,16 +199,6 @@
                                             <action selector="useFilter:" destination="Q1S-a4-Aww" eventType="touchUpInside" id="knH-Pr-CxM"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJp-m3-HJK">
-                                        <rect key="frame" x="28" y="13" width="45" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="增高">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="useIncreaseHeight:" destination="Q1S-a4-Aww" eventType="touchUpInside" id="Odw-O7-fHY"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -219,7 +209,6 @@
                         <outlet property="backButton" destination="N7z-aS-8wD" id="dj1-TQ-1O0"/>
                         <outlet property="bottomView" destination="K5B-ce-QkT" id="RGC-GO-il6"/>
                         <outlet property="imageView" destination="sh7-NW-rOu" id="tBS-C8-O18"/>
-                        <outlet property="increaseHeightButton" destination="ZJp-m3-HJK" id="tJG-b6-0Ch"/>
                         <outlet property="saveButton" destination="8HV-cQ-Bp8" id="LkB-e6-8V8"/>
                     </connections>
                 </viewController>

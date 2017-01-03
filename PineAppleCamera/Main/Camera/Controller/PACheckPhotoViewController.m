@@ -38,7 +38,7 @@
 #import "FWNashvilleFilter.h"
 #import "FWRiseFilter.h"
 
-static int count = 0;
+static int count = 1;
 static int CameraFilterCount = 10;
 
 @interface PACheckPhotoViewController ()
@@ -60,6 +60,7 @@ static int CameraFilterCount = 10;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [_bottomView setBackgroundColor:[UIColor blackColor]];
+    [self addCameraFilterView];
     // Do any additional setup after loading the view.
 }
 
@@ -110,7 +111,8 @@ static int CameraFilterCount = 10;
 - (void)addCameraFilterView {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    _cameraFilterView = [[CameraFilterView alloc] initWithFrame:CGRectMake(0,SCREEN_HEIGHT - _bottomView.frame.size.height - (SCREEN_WIDTH - 4 )/5, SCREEN_WIDTH, (SCREEN_WIDTH - 4 ) / 5) collectionViewLayout:layout];
+//    _cameraFilterView = [[CameraFilterView alloc] initWithFrame:CGRectMake(0,SCREEN_HEIGHT - _bottomView.frame.size.height - (SCREEN_WIDTH - 4 )/5, SCREEN_WIDTH, (SCREEN_WIDTH - 4 ) / 5) collectionViewLayout:layout];
+    _cameraFilterView = [[CameraFilterView alloc] initWithFrame:CGRectMake(0,SCREEN_HEIGHT - _bottomView.frame.size.height, SCREEN_WIDTH, (SCREEN_WIDTH - 4 ) / 5) collectionViewLayout:layout];
     NSMutableArray *filterNameArray = [[NSMutableArray alloc] initWithCapacity:CameraFilterCount];
     for (NSInteger index = 0; index < CameraFilterCount; index++) {
         UIImage *image = [UIImage imageNamed:@"girl"];

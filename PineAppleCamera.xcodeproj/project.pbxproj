@@ -1011,7 +1011,7 @@
 		124C168E1E052646007C94EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				DEVELOPMENT_TEAM = ZA747HXW4Q;
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/PinaAppleCamera/**",
@@ -1029,7 +1029,7 @@
 		124C168F1E052646007C94EF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				DEVELOPMENT_TEAM = ZA747HXW4Q;
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/PinaAppleCamera/**",
