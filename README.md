@@ -1,1 +1,2 @@
 # PineAppleCamera
+Its a Camera based on GPUImage.I developed it on the develop branch,havent merge it on master all the time.Just now i ran it and discovered it missed GPUImage.proj. The code is simple and naive.Camera was the first project i developed when i was a trainee in Meitu.It made a great influence on me. I'm greatful in heart.The code contains basic functions of a camera and the functions were checked. So why it called PineAppleCamera, only for the girl who was my GF then, so pure and pretty, and she likes pineapple a lot.
